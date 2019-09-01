@@ -1,0 +1,6 @@
+{
+  "dataset": "EpilepsiaSurf", 
+  "datadir": "/mnt/data4/European_Epilepsy_Datasets/data/surf30",
+  "cachedir": "/mnt/data5_2T/tempdata/GAN-unsupervised-EpilepsiaSurf",  
+  "resultdir": "results-EpilepsiaSurf"
+}

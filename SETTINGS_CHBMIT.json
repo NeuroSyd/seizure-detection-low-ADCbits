@@ -1,0 +1,6 @@
+{
+  "dataset": "CHBMIT",
+  "datadir": "/mnt/data4/datasets/seizure/CHB-MIT",
+  "cachedir": "/mnt/data7_M2/tempdata/CNN-ADC-MIT",
+  "resultdir": "results"
+}
