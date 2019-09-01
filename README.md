@@ -2,7 +2,9 @@
 Epileptic Seizure Detection on Low-Precision Electroencephalogram Signals
 
 ##### Code to reproduce results reported in our paper published as:
-Truong, N. D. and O. Kavehei (2019). Epileptic Seizure Detection on Low-Precision Electroencephalogram Signals. Under review with *IEEE Journal on Emerging and Selected Topics in Circuits and Systems*.
+* Truong, N. D. and O. Kavehei (2019). Epileptic Seizure Detection on Low-Precision Electroencephalogram Signals. Under review with *IEEE Journal on Emerging and Selected Topics in Circuits and Systems*.
+
+* Truong, N. D. and O. Kavehei (2019). Low Precision Electroencephalogram for Seizure Detection with Convolutional Neural Network. *IEEE International Conference on Artificial Intelligence Circuits and Systems*.}
 
 #### Requirements
 
