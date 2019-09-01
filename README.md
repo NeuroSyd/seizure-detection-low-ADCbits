@@ -21,5 +21,7 @@ Epileptic Seizure Detection on Low-Precision Electroencephalogram Signals
 1. Set the paths in \*.json files. Copy files in folder "copy-to-CHBMIT" to your CHBMIT dataset folder.
 
 2. Leave-one-seizure-out cross-validation or test.
-> python3 main.py --mode [cv,test] --dataset DATASET --adcbits [number-of-ADCbits]
+```console
+python3 main.py --mode [cv,test] --dataset DATASET --adcbits [number-of-ADCbits]
+```
 * DATASET can be FB, CHBMIT.
