@@ -27,12 +27,12 @@ class ConvNN(object):
 	def setup(self,X_train_shape):
 		print ('X_train shape', X_train_shape)
 
-		# Input shape = (None,1,16,200)
+		# Input shape = (None,16,200,1)
 		inputs = Input(shape=X_train_shape[1:])
 
 		normal1 = BatchNormalization(axis=1, name='normal1')(inputs)
 		conv1 = Convolution2D(
-			16,(X_train_shape[2],5),
+			16,(X_train_shape[1],5), # X_train_shape[2] if channel_first
 			padding='valid', strides=(1,2),
 			name='conv1')(normal1)
 		relu1 = Activation('relu')(conv1)
@@ -68,7 +68,7 @@ class ConvNN(object):
 		temperature = Lambda(lambda x: x / temp)(dens2)
 		last = Activation('softmax')(temperature)
 
-		self.model = Model(input=inputs, output=last)
+		self.model = Model(inputs=inputs, outputs=last)
 
 		adam = Adam(lr=5e-4, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
 		self.model.compile(

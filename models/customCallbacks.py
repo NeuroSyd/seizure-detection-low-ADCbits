@@ -1,4 +1,5 @@
 from keras.callbacks import *
+import numpy as np
 
 class MyModelCheckpoint(Callback):
     """Save the model after every epoch.
