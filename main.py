@@ -8,7 +8,7 @@ import pandas as pd
 # os.environ["CUDA_VISIBLE_DEVICES"]="1"
 
 import keras
-keras.backend.set_image_data_format('channels_first')
+keras.backend.set_image_data_format('channels_last')
 print ('Using Keras image_data_format=%s' % keras.backend.image_data_format())
 
 from utils.load_signals import PrepData
@@ -141,6 +141,12 @@ def main(dataset, build_type, adcbits):
                 print (X_train.shape, y_train.shape,
                        X_val.shape, y_val.shape,
                        X_test.shape, y_test.shape)
+                
+                # Change to channel_last, CPU implentation does not support channel_first
+                X_train = np.transpose(X_train, (0,2,3,1))
+                X_val = np.transpose(X_val, (0,2,3,1))
+                X_test = np.transpose(X_test, (0,2,3,1))
+
                 print ('y values', np.unique(y_train), np.unique(y_val), np.unique(y_test))
                 
                 model = ConvNN(
@@ -182,6 +188,11 @@ def main(dataset, build_type, adcbits):
             print (df_key[df_key['clip'].str.contains(target)].seizure.values)
             y_test = df_key[df_key['clip'].str.contains(target)].seizure.values
             y_test = np.array(y_test)
+
+            # Change to channel_last, CPU implentation does not support channel_first
+            X_train = np.transpose(X_train, (0,2,3,1))
+            X_val = np.transpose(X_val, (0,2,3,1))
+            X_test = np.transpose(X_test, (0,2,3,1))
             
             model = ConvNN(
                 target,batch_size=32,nb_classes=2,epochs=50,mode=build_type)
